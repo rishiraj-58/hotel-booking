@@ -12,7 +12,7 @@ const Reserve = ({ setOpen, hotelId, hotelName }) => {
   const { dispatch } = useContext(AuthContext);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading, error } = useFetch(
-    `http://localhost:8800/api/hotels/room/${hotelId}`
+    `https://booking-backend-5rvn.onrender.com/api/hotels/room/${hotelId}`
   );
   
 
@@ -70,13 +70,13 @@ const Reserve = ({ setOpen, hotelId, hotelName }) => {
       await Promise.all(
         selectedRooms.map((roomId) => {
           const res = axios.put(
-            `http://localhost:8800/api/rooms/availability/${roomId}`,
+            `https://booking-backend-5rvn.onrender.com/api/rooms/availability/${roomId}`,
             { dates: alldates }
           );
           return res.data;
         })
       );
-      axios.put(`http://localhost:8800/api/users/addhotels/${user._id}`, {hotels: allhotels})
+      axios.put(`https://booking-backend-5rvn.onrender.com/api/users/addhotels/${user._id}`, {hotels: allhotels})
       dispatch({ type: "UPDATE_HOTELS", payload: allhotels });
 
       setOpen(false)

@@ -37,7 +37,7 @@ const Register = () => {
         img: url,
       };
 
-      await axios.post("http://localhost:8800/api/auth/register", newUser);
+      await axios.post("https://booking-backend-5rvn.onrender.com/api/auth/register", newUser);
       
 
     } catch (err) {

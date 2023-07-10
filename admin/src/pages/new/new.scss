@@ -76,3 +76,21 @@
     }
   }
 }
+
+.isAdminCell {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.isAdminCell.admin {
+  background-color: green;
+  color: white;
+}
+
+.isAdminCell.not-admin {
+  background-color: red;
+  color: white;
+}

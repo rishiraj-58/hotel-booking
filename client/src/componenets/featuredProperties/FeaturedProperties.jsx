@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 const FeaturedProperties = () => {
 
     const { data, loading, error } = useFetch(
-        "http://localhost:8800/api/hotels?featured=true&limit=4",
+        "https://booking-backend-5rvn.onrender.com/api/hotels?featured=true&limit=4",
       );
 
     return (

@@ -50,5 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8800/api"
+  "proxy": "https://booking-backend-5rvn.onrender.com/api"
 }

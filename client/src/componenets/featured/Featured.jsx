@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "http://localhost:8800/api/hotels/countByCity?cities=Kochi,Thiruvananthapuram,Banglore"
+    "https://booking-backend-5rvn.onrender.com/api/hotels/countByCity?cities=Kochi,Thiruvananthapuram,Banglore"
   );
   let destination = "";
 

@@ -7,10 +7,12 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img || "https://reactjs.org/logo-og.png"}
-          alt="avatar" />
+          <img
+            className="cellImg"
+            src={params.row.img || "https://reactjs.org/logo-og.png"}
+            alt="avatar"
+          />
           {params.row.username}
-          
         </div>
       );
     },
@@ -20,7 +22,6 @@ export const userColumns = [
     headerName: "Email",
     width: 230,
   },
-
   {
     field: "country",
     headerName: "Country",
@@ -36,8 +37,20 @@ export const userColumns = [
     headerName: "Phone",
     width: 100,
   },
-  
+  {
+    field: "isAdmin",
+    headerName: "Is Admin",
+    width: 100,
+    renderCell: (params) => {
+      return (
+        <div className={`isAdminCell ${params.value ? "admin" : "not-admin"}`}>
+          {params.value ? "Admin" : "Not Admin"}
+        </div>
+      );
+    },
+  },
 ];
+
 
 export const hotelColumns = [
   { field: "_id", headerName: "ID", width: 250 },
@@ -61,6 +74,7 @@ export const hotelColumns = [
     headerName: "City",
     width: 100,
   },
+  
 ];
 
 export const roomColumns = [

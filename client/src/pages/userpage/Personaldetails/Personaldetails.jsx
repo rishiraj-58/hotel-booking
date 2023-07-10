@@ -26,7 +26,7 @@ const PersonalDetails = () => {
         email,
         phone
       };
-      const response = await axios.put(`http://localhost:8800/api/users/${user._id}`, updatedUser);
+      const response = await axios.put(`https://booking-backend-5rvn.onrender.com/api/users/${user._id}`, updatedUser);
       dispatch({ type: "UPDATE_USER", payload: response.data });
     } catch (error) {
       console.log(error);
