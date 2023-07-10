@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  console.log(user)
+  
   const handleRegister = () =>{
     navigate("/register")
   }
@@ -26,7 +26,13 @@ const Navbar = () => {
           <span className="logo">Elite Booking</span>
         </Link>
         {user ? (
-          <div>{user.username}</div>
+          <div className="user">
+          <div className="image">
+            <img src={user.img} alt="User" />
+          </div>
+          <div className="username">{user.username}</div>
+        </div>
+        
         ) : (
           <div className="navItems">
             <button onClick={handleRegister} className="navButton">Register</button>

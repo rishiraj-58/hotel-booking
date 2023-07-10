@@ -9,6 +9,7 @@ import useFetch from "../../hooks/useFetch";
 import "./reserve.css";
 
 const Reserve = ({ setOpen, hotelId, hotelName }) => {
+  const { dispatch } = useContext(AuthContext);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading, error } = useFetch(
     `http://localhost:8800/api/hotels/room/${hotelId}`
@@ -76,6 +77,8 @@ const Reserve = ({ setOpen, hotelId, hotelName }) => {
         })
       );
       axios.put(`http://localhost:8800/api/users/addhotels/${user._id}`, {hotels: allhotels})
+      dispatch({ type: "UPDATE_HOTELS", payload: allhotels });
+
       setOpen(false)
       navigate("/")
     } catch (err) {}

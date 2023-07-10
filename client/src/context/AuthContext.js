@@ -12,28 +12,42 @@ const AuthReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN_START":
       return {
-      user: null,
-      loading: true,
-      error: null,
-    };
+        ...state,
+        loading: true,
+        error: null,
+      };
     case "LOGIN_SUCCESS":
       return {
-      user: action.payload,
-      loading: false,
-      error: null,
-    };
+        ...state,
+        user: {
+          ...action.payload,
+          hotels: action.payload.hotels || [],
+        },
+        loading: false,
+        error: null,
+      };
     case "LOGIN_FAILURE":
       return {
-      user: null,
-      loading: false,
-      error: action.payload,
-    };
+        ...state,
+        user: null,
+        loading: false,
+        error: action.payload,
+      };
     case "LOGOUT":
       return {
-      user: null,
-      loading: false,
-      error: null,
-    };
+        ...state,
+        user: null,
+        loading: false,
+        error: null,
+      };
+    case "UPDATE_HOTELS":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          hotels: action.payload || [], // Handle empty payload
+        },
+      };
     default:
       return state;
   }
@@ -42,9 +56,9 @@ const AuthReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
-  useEffect(()=>{
-    localStorage.setItem("user", JSON.stringify(state.user))
-  },[state.user])
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(state.user));
+  }, [state.user]);
 
   return (
     <AuthContext.Provider

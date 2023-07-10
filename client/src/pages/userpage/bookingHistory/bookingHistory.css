@@ -1,0 +1,69 @@
+.bookingHistoryContainer {
+    /* background-color: #f5f5f5; */
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(100% - 300px); /* Adjust the value to leave space on the left */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add box shadow */
+    /* margin: 20px; */
+  }
+  
+  .bookingTable {
+    width: 100%;
+    border-collapse: collapse; /* Remove spacing between table cells */
+  }
+  
+  .tableHeading {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 10px 0;
+    margin-left: 10px;
+    margin-right: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Add line after heading */
+  }
+  
+  .bookingItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* width: 100%; */
+    position: relative; /* Enable positioning for line */
+  }
+  
+  .bookingItem::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2); /* Line after each row */
+  }
+  
+  .hotelName {
+    color: #333;
+    font-size: 18px;
+    flex: 1;
+  }
+  
+  .roomNumbers {
+    flex: 1;
+    text-align: center;
+    margin-right: 50px;
+  }
+  
+  .dateRange {
+    flex: 1;
+    text-align: right; /* Adjust alignment */
+  }
+  
+  ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+  }
+  

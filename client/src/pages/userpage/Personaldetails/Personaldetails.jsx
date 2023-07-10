@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from "../../../context/AuthContext";
-import "./personaldetails.css";
+import "./personalDetails.css";
 import axios from 'axios';
 
-const Personaldetails = () => {
+const PersonalDetails = () => {
   const { user, dispatch } = useContext(AuthContext);
   const [editingField, setEditingField] = useState(null);
   const [name, setName] = useState(user.username);
@@ -144,3 +144,5 @@ const Personaldetails = () => {
     </div>
   );
 };
+
+export default PersonalDetails;

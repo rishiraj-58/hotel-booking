@@ -1,60 +1,12 @@
 /* userpage.css */
-
-.userContainer {
-    display: flex;
-    padding-left: 100px;
-    padding-right: 200px;
-    padding-top: 20px;
-  }
-  
-  .userSidebarContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .userSidebar {
-    width: fit-content;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-right: 20px;
-    height: 350px; /* Adjust the height of the userSidebar section as needed */
-  }
-  
-  .userSidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .userSidebar li {
-    cursor: pointer;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .userSidebar li:first-child {
-    border-top: none;
-  }
-  
-  .userSidebar li:hover {
-    background-color: #f1f7fb;
-    transition: background-color 0.3s ease;
-  }
   
   .userDetails {
     flex: 1;
     padding-left: 20px;
     padding-right: 20px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
   
   .userImageContainer {
@@ -82,7 +34,8 @@
   .personalDetails {
     text-align: left;
     padding: 20px;
-    /* border-bottom: 1px solid #ccc; */
+    border-bottom: 1px solid #ccc;
+    
   }
   
   .personalDetails ul {
