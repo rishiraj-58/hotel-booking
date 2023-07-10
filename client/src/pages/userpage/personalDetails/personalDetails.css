@@ -1,0 +1,76 @@
+/* userpage.css */
+  
+  .userDetails {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* border: 1px solid #ccc; */
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .userImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .userImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .userImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .personalDetails {
+    text-align: left;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    
+  }
+  
+  .personalDetails ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .personalDetails li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .personalDetails li strong {
+    width: 150px;
+    margin-right: 50px;
+  }
+  
+  .personalDetails li .info {
+    margin-left: 50px;
+    padding-left: 10px;
+  }
+  
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+  }
+  
+  .fadedLine {
+    width: 80%;
+    height: 1px;
+    background-color: #ccc;
+    opacity: 0.4;
+    margin: 8px auto;
+  }
+  
