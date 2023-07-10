@@ -11,6 +11,15 @@ import cors from "cors"
 const app = express()
 dotenv.config()
 
+// Set up CORS options
+const corsOptions = {
+    origin: 'https://booking-frontend-pfkg.onrender.com', // Replace with your React app's domain
+    optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
+  
+  // Enable CORS
+  app.use(cors(corsOptions));
+
 const connect = async ()=>{
     try {
         await mongoose.connect(process.env.MONGO);
