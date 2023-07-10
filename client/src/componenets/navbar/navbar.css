@@ -1,26 +1,23 @@
-.navbar{
+.navbar {
     height: 50px;
     background-color: #003580;
     display: flex;
     justify-content: center;
-}
-
-.navContainer{
-    width: 100%;
-    /* max-width: 1024px; */
-    margin-left: 100px;
-    margin-right: 200px;
+  }
+  
+  .navContainer {
+    width: 90%;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.logo{
+  }
+  
+  .logo {
     font-weight: 500;
-}
-
-.navButton {
+  }
+  
+  .navButton {
     background-color: white;
     margin: 10px 10px;
     color: #0071c2;
@@ -28,13 +25,60 @@
     border: none;
     padding: 10px;
     cursor: pointer;
-}
-
-.user {
+  }
+  
+  .dropdownContainer {
+    position: relative;
+  }
+  
+  .userContainer:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0; /* Shift the dropdown box to the right */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+    z-index: 1;
+  }
+  
+  .dropdownContainer:hover .dropdownMenu {
+    opacity: 1;
+  }
+  
+  .dropdownMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdownMenu li {
+    padding: 5px 0;
+    color: black;
+  }
+  
+  .dropdownMenu li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .dropdownMenu a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .userNavContainer {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 8px;
+    justify-content: flex-end; /* Align the items to the right */
+    cursor: pointer;
+    /* Remove margin-left: 1000px; */
   }
   
   .image {
@@ -42,6 +86,10 @@
     height: 30px;
     border-radius: 50%;
     overflow: hidden;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
   }
   
   .image img {
@@ -51,5 +99,11 @@
   }
   
   .username {
-    margin-left: 10px;
+    color: white;
   }
+  
+  .dropdownMenu li:last-child {
+    color: red;
+    cursor: pointer;
+  }
+  
