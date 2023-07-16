@@ -13,9 +13,12 @@ dotenv.config()
 
 // Set up CORS options
 const corsOptions = {
-    origin: 'https://booking-frontend-pfkg.onrender.com', // Replace with your React app's domain
-    optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+    origin: 'https://rrbookings.onrender.com',
+    optionsSuccessStatus: 200,
+    credentials: true,
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
   };
+  
   
   // Enable CORS
   app.use(cors(corsOptions));
@@ -34,7 +37,6 @@ mongoose.connection.on("disconnected", ()=>{
 })
 
 //middlewares
-app.use(cors())
 app.use(cookieParser())
 app.use(express.json()) // It will make it in json format, so api request can be understood
 
