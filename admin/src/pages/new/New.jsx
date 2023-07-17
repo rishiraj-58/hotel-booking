@@ -4,14 +4,22 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
-  const [info, setInfo] = useState({});
-
+  const [info, setInfo] = useState({
+    isAdmin: false,
+  });
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [error, setError] = useState("");
+  
   const handleChange = (e) => {
-    setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    const { id, value, type, checked } = e.target;
+    const newValue = type === "checkbox" ? checked : value;
+    setInfo((prev) => ({ ...prev, [id]: newValue }));
   };
+  
 
   const handleClick = async (e) => {
     e.preventDefault(); //to prevent page to reload
@@ -32,8 +40,9 @@ const New = ({ inputs, title }) => {
       };
 
       await axios.post("/auth/register", newUser);
+      setRegistrationSuccess(true)
     } catch (err) {
-      console.log(err);
+      setError(err.response?.data?.message || "Registration failed");
     }
   };
 
@@ -71,17 +80,41 @@ const New = ({ inputs, title }) => {
               </div>
 
               {inputs.map((input) => (
-                <div className="formInput" key={input.id}>
-                  <label>{input.label}</label>
-                  <input
-                    onChange={handleChange}
-                    type={input.type}
-                    placeholder={input.placeholder}
-                    id={input.id}
-                  />
+                  <div className="formInput" key={input.id}>
+                    <label>{input.label}</label>
+                    {input.type === "checkbox" ? (
+                      <input
+                        onChange={handleChange}
+                        type={input.type}
+                        id={input.id}
+                        checked={info[input.id] || false}
+                      />
+                    ) : (
+                      <input
+                        onChange={handleChange}
+                        type={input.type}
+                        placeholder={input.placeholder}
+                        id={input.id}
+                        value={info[input.id] || ""}
+                      />
+                    )}
+                  </div>
+                ))}
+              <div className="button-container">
+                  <button onClick={handleClick}>Send</button>
+                  {registrationSuccess && (
+                    <p className="success-message">
+                      Registration successful!
+                    </p>
+                  )}
+                  {error && <p className="error-message">{error}</p>}
+                  {registrationSuccess && (
+                    <p className="go-to-home-link">
+                      <Link to="/users">Go to Users list</Link>
+                    </p>
+                  )}
                 </div>
-              ))}
-              <button onClick={handleClick}>Send</button>
+                {error && <p className="error-message">{error}</p>}
             </form>
           </div>
         </div>

@@ -106,4 +106,9 @@
     color: red;
     cursor: pointer;
   }
+
+  .dropdownMenu li a {
+    white-space: nowrap;
+  }
+  
   

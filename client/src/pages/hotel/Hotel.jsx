@@ -39,7 +39,7 @@ const Hotel = () => {
     return diffDays;
   }
 
-  const days = dayDifference(dates[0].endDate, dates[0].startDate)
+  const days = dayDifference(dates[0].endDate, dates[0].startDate)+1
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -101,14 +101,14 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
+            <button className="bookNow" onClick={handleClick}>Reserve or Book Now!</button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
             </div>
             <span className="hotelDistance">
-              Excellent location - {data.distance}m from center
+              Excellent location - {data.distance}km from center
             </span>
             <span className="hotelPriceHighlight">
               Book a stay over ₹{data.cheapestPrice} at this property and get a free airport taxi

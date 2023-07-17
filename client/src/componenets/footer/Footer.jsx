@@ -50,7 +50,7 @@ const Footer = () => {
                     <li className="fListItem">Place of Intrest</li>
                 </ul>
             </div>
-            <div className="fText">Copyright © 1996–2022 Lamabooking.com™. All rights reserved.</div>
+            <div className="fText">Copyright © 1996–2022 rrbookings.onrender.com™. All rights reserved.</div>
         </div>
     )
 }

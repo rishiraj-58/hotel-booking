@@ -50,7 +50,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navContainer">
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-          <span className="logo">Elite Booking</span>
+          <span className="logo">RR Bookings</span>
         </Link>
         {user ? (
           <div className="dropdownContainer" ref={dropdownRef}>

@@ -8,6 +8,8 @@
     flex: 6;
 }
 
+
+
 .top{
     color: teal;   
     margin: 5px 0px 15px 15px;
@@ -87,3 +89,25 @@ button {
     cursor: pointer;
     margin-top: 10px;
   }
+  
+  
+  .success-message {
+    margin-top: 5px;
+    font-size: 14px;
+    color: green;
+  }
+  
+  .error-message {
+    margin-top: 5px;
+    font-size: 14px;
+    color: red;
+  }
+  
+  .go-to-home-link {
+    margin-top: 5px;
+    font-size: 14px;
+    color: blue;
+    text-decoration: underline;
+  }
+  
+  

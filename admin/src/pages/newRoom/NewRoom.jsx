@@ -6,13 +6,16 @@ import { useState } from "react";
 import { roomInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
 const NewRoom = () => {
   const [info, setInfo] = useState({});
   const [hotelId, setHotelId] = useState(undefined);
   const [rooms, setRooms] = useState([]);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [error, setError] = useState("");
 
-  const { data, loading, error } = useFetch("/hotels");
+  const { data, loading} = useFetch("/hotels");
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -23,8 +26,9 @@ const NewRoom = () => {
     const roomNumbers = rooms.split(",").map((room)=>({number:room}))
     try {
       await axios.post(`https://booking-backend-5rvn.onrender.com/api/rooms/${hotelId}`, {...info, roomNumbers})
+      setRegistrationSuccess(true);
     } catch (err) {
-      console.log(err)
+      setError(err.response?.data?.message || "Registration failed");
     }
   };
 
@@ -68,7 +72,21 @@ const NewRoom = () => {
                       ))}
                 </select>
               </div>
-              <button onClick={handleClick}>Send</button>
+              <div className="button-container">
+                  <button onClick={handleClick}>Send</button>
+                  {registrationSuccess && (
+                    <p className="success-message">
+                      Registration successful!
+                    </p>
+                  )}
+                  {error && <p className="error-message">{error}</p>}
+                  {registrationSuccess && (
+                    <p className="go-to-home-link">
+                      <Link to="/rooms">Go to Rooms list</Link>
+                    </p>
+                  )}
+                </div>
+                {error && <p className="error-message">{error}</p>}
             </form>
           </div>
         </div>
