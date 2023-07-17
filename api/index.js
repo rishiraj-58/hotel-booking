@@ -13,7 +13,7 @@ dotenv.config()
 
 // Set up CORS options
 const corsOptions = {
-    origin: 'https://rrbookings.onrender.com',
+    origin: ['https://rrbookings.onrender.com', 'http://localhost:3000', 'http://localhost:3001'],
     optionsSuccessStatus: 200,
     credentials: true,
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization',

@@ -49,7 +49,7 @@ const NewHotel = () => {
         photos: list,
       };
 
-      await axios.post("/hotels", newHotel)
+      await axios.post("https://booking-backend-5rvn.onrender.com/api/hotels", newHotel)
     } catch (err) {}
   };
 
