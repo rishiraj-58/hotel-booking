@@ -18,6 +18,13 @@ const Reserve = ({ setOpen, hotelId, hotelName }) => {
 
   const { dates } = useContext(SearchContext);
   const {user} = useContext(AuthContext);
+  const currentDate = new Date();
+  const tomorrowDate = new Date();
+  tomorrowDate.setDate(currentDate.getDate() + 1);
+  const startDate = dates && dates[0] && dates[0].startDate ? new Date(dates[0].startDate) : currentDate;
+
+  // Use tomorrow's date as the default end date if dates[0].endDate is not defined
+  const endDate = dates && dates[0] && dates[0].endDate ? new Date(dates[0].endDate) : tomorrowDate;
  
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -31,7 +38,7 @@ const Reserve = ({ setOpen, hotelId, hotelName }) => {
     }
     return dates;
   };
-  const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
+  const alldates = getDatesInRange(startDate, endDate);
 
   const isAvailable = (roomNumber) => {
     const isFound = roomNumber.unavailableDates.some((date) =>

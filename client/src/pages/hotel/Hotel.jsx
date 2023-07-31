@@ -33,13 +33,29 @@ const Hotel = () => {
   const {dates, options} = useContext(SearchContext)
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
   function dayDifference(date1, date2) {
-    
+    if (!date1) {
+      // If startDate is not defined, use the current date
+      date1 = new Date();
+    }
+    if (!date2) {
+      // If endDate is not defined, use the next day
+      date2 = new Date();
+      date2.setDate(date2.getDate() + 1);
+    }
+  
     const timeDiff = Math.abs(date2.getTime() - date1.getTime());
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
   }
+  
+  
+  const days = dates && dates[0] && dates[0].endDate && dates[0].startDate
+  ? dayDifference(dates[0].endDate, dates[0].startDate) + 1
+  : 1;
 
-  const days = dayDifference(dates[0].endDate, dates[0].startDate)+1
+  const price = data.cheapestPrice || 0; // Use a default value if data.cheapestPrice is not defined
+  const room = options && options.room ? options.room : 1;
+  const totalPrice = days * price * room;
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -139,7 +155,7 @@ const Hotel = () => {
                   excellent location score of 9.8!
                 </span>
                 <h2>
-                  <b>₹{days * data.cheapestPrice * options.room}</b> ({days} nights)
+                  <b>₹{totalPrice}</b> ({days} nights)
                 </h2>
                 <button onClick={handleClick}>Reserve or Book Now!</button>
               </div>
